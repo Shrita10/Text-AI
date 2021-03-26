@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Mar  9 03:49:28 2021
+Created on Fri Mar 19 14:30:21 2021
 
 @author: Shrita
 """
+
+
 
 import numpy as np
 from flask import Flask, request, jsonify, render_template
@@ -31,12 +33,17 @@ def create_conn():
 @app.route('/')
 
 def home():
-    return render_template('updated_html.html')
+    return render_template('updated.html')
 
 @app.route('/predict2',methods = ['POST'])
 
 def predict2():
     input_text = request.form['ttext']
+    option = request.form['select10']
+    conn = create_conn()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO textai.texttable('input_text','option') VALUES (%s,%s)",(input_text,option))        
+    conn.commit()
     cleaned = re.sub(r'\W+', ' ', training_doc3).lower()
     tokens = word_tokenize(cleaned)
     train_len = 1
@@ -62,8 +69,13 @@ def predict2():
     first_word = list_of_words[0]
     second_word = list_of_words[1]
     third_word = list_of_words[2]
-    return render_template('updated_html.html',prediction_text1 = first_word , prediction_text2 =  second_word, prediction_text3 = third_word)
+    return render_template('html1.html',prediction_text1 = first_word , prediction_text2 =  second_word, prediction_text3 = third_word)
    
+
+    
+
+
+
 
 
 if __name__ == "__main__":

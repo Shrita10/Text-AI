@@ -14,19 +14,49 @@
 
 		<form action="{{url_for('predict2')}}" method = "post" >
 
-		    <div class='regform1'> <h2>To determine the best job suggestions, please enter your resume.</h2> </div>
-		 
 		    
-		    
-		    <textarea name="ttext" class="resume1" rows="4" cols="50" ></textarea> <br>
+		    <textarea name="ttext" id = "ttext1" class="resume1" rows="4" cols="50" ></textarea> <br>
 		    
 		    <button type = "submit" class = "button1"> Get the next word</button>
-
-		    <p class='result1'>{{ prediction_text1 }}</p>
-
-		    <p class='result2'>{{ prediction_text2 }}</p>
-
-		    <p class='result3'>{{ prediction_text3 }}</p>
+		    
+		    <br>
+		    
+		    <input type="radio" id="male" name="select10" class='result1' value="male">
+            <label for="male"> first {{ prediction_text1 }} </label><br>
+            
+            <input type="radio" id="male" name="select10" class='result2' value="male">
+            <label for="male"> second{{ prediction_text2 }} </label><br>
+            
+            <input type="radio" id="male" name="select10" class='result3' value="male">
+            <label for="male"> third {{ prediction_text3 }} </label><br>
+            
+            
+            <button type = "submit" class = "button1" onclick="playit();" > add them</button>
+            
+		    <input type="submit" onclick="playit();">
+		    
+		   <p id = "Demo1" ></p>
+		    
+		    
+		    <script>
+    		    function playit(){
+        		    var var1 = document.getElementById("ttext").value;
+                    var ele = document.getElementsByName("male"); 
+                    for(i = 0; i < ele.length; i++) { 
+                    if(ele[i].checked) 
+                    var var2 = ele[i].value }
+                    var var3 = var1 + " " +var2;
+                    
+                    console.log(var3);
+            
+                 document.getElementById("Demo1").innerHTML = var3;
+                }
+            </script>
+		    
+		    
+		    
+		    
+		   
 
 		    </div>
 		    </form> 
