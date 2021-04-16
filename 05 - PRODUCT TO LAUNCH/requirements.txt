@@ -16,4 +16,5 @@ nltk == 3.5
 numpy == 1.19.2
 
 # C:\Users\Shrita\Desktop\Text-AI\05 - PRODUCT TO LAUNCH\app.py: 8,13,14,18
-tensorflow == 2.4.1
+tensorflow-cpu == 2.4.1
+

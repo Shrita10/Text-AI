@@ -1,0 +1,13 @@
+flask == 1.1.2
+flask-restful == 0.3.8
+flask-restful-theodofork == 0.3.7
+nltk == 3.5
+numpy == 1.19.2
+tensorflow-cpu == 2.4.1
+Jinja2==2.10.1
+MarkupSafe==1.1.1
+Werkzeug==0.15.5
+flask_ngrok==0.0.25
+gunicorn==19.9.0
+itsdangerous==1.1.0
+click==7.1.2
